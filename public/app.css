@@ -1,0 +1,94 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --ink: #1d1a16;
+  --muted: #6d655c;
+  --line: #e3dcd0;
+  --teal: #0e5f5a;
+  --teal-soft: #e5f3f1;
+  --amber: #8a5a12;
+  --amber-soft: #f8efdc;
+  --red: #8d2f2f;
+  --red-soft: #f8e8e4;
+  --shadow: 0 18px 40px rgba(55, 42, 24, 0.08);
+  font-family: "Segoe UI", Candara, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+.top {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; gap: 24px; align-items: center;
+  padding: 16px 28px; background: rgba(243, 239, 230, 0.92);
+  border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+}
+.mark { font-weight: 700; letter-spacing: -0.03em; text-decoration: none; font-size: 18px; }
+#search-form { flex: 1; max-width: 520px; }
+#search {
+  width: 100%; border: 1px solid var(--line); background: var(--card);
+  border-radius: 999px; padding: 10px 16px;
+}
+#app { width: min(1180px, calc(100% - 32px)); margin: 24px auto 64px; }
+.page-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 18px; }
+h1 { font-size: 34px; line-height: 1.05; letter-spacing: -0.04em; margin: 0; }
+h2 { font-size: 18px; margin: 0 0 12px; }
+.sub { color: var(--muted); margin: 6px 0 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.card, .panel, .plan {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+}
+.run {
+  display: block; padding: 16px; text-decoration: none; box-shadow: var(--shadow);
+}
+.run:hover { border-color: #c9bfb0; }
+.run strong { display: block; font-size: 17px; letter-spacing: -0.02em; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; color: var(--muted); font-size: 13px; }
+.pill {
+  display: inline-flex; align-items: center; border-radius: 999px;
+  padding: 3px 8px; background: var(--teal-soft); color: var(--teal); font-size: 12px; font-weight: 650;
+}
+.pill.warn { background: var(--amber-soft); color: var(--amber); }
+.pill.bad { background: var(--red-soft); color: var(--red); }
+.stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 16px 0; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+.stat span { display: block; color: var(--muted); font-size: 12px; }
+.stat b { display: block; margin-top: 4px; font-size: 20px; letter-spacing: -0.03em; }
+.layout { display: grid; grid-template-columns: 300px 1fr; gap: 16px; align-items: start; }
+.panel { padding: 16px; }
+.flow { display: grid; gap: 10px; }
+.step { display: grid; grid-template-columns: 28px 1fr; gap: 10px; }
+.num {
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--teal); color: white; font-size: 12px;
+}
+.step p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.plans { display: grid; gap: 10px; }
+.plan { width: 100%; text-align: left; padding: 14px; cursor: pointer; }
+.plan:hover, .plan.active { border-color: var(--teal); }
+.plan-top { display: flex; justify-content: space-between; gap: 12px; }
+.prices { display: flex; gap: 14px; margin-top: 10px; color: var(--muted); font-size: 13px; }
+.prices b { color: var(--ink); font-weight: 650; }
+.sheet-back {
+  position: fixed; inset: 0; background: rgba(29, 26, 22, 0.28); z-index: 8;
+}
+.sheet {
+  position: fixed; top: 0; right: 0; z-index: 9; height: 100%; width: min(560px, 100%);
+  background: var(--paper); border-left: 1px solid var(--line); overflow: auto; padding: 22px;
+}
+.sheet header { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+.close { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.price-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th { text-align: left; color: var(--muted); font-weight: 600; font-size: 12px; }
+.table th, .table td { padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table a { color: var(--teal); }
+.empty { padding: 28px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) {
+  .stats, .layout, .price-row { grid-template-columns: 1fr 1fr; }
+  .layout { grid-template-columns: 1fr; }
+  .top { padding: 12px; }
+}
